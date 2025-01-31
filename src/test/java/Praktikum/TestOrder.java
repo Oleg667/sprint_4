@@ -20,7 +20,6 @@ import org.junit.Rule;
     @RunWith(Parameterized.class)
     public class TestOrder {
     private MainPage mainPage;
-    private final String site = "https://qa-scooter.praktikum-services.ru/"; // URL тестируемого сайта
     private final String name; // Имя арендатора
     private final String surname; // Фамилия арендатора
     private final String address; // Адрес арендатора

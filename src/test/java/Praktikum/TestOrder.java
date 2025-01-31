@@ -19,47 +19,47 @@ import org.junit.Rule;
 // Указываем, что данный класс будет использовать параметризованные тесты
     @RunWith(Parameterized.class)
     public class TestOrder {
-        private MainPage mainPage;
-        private final String site = "https://qa-scooter.praktikum-services.ru/"; // URL тестируемого сайта
-        private final String name; // Имя арендатора
-        private final String surname; // Фамилия арендатора
-        private final String address; // Адрес арендатора
-        private final int stateMetroNumber; // Номер станции метро
-        private final String telephoneNumber; // Телефон арендатора
-        private final String date; // Дата аренды
-        private final String duration; // Длительность аренды
-        private final String colour; // Цвет самоката
-        private final String comment; // Комментарий от пользователя
-        private final String expectedHeader = "Заказ оформлен"; // Ожидаемый заголовок после оформления заказа
+    private MainPage mainPage;
+    private final String site = "https://qa-scooter.praktikum-services.ru/"; // URL тестируемого сайта
+    private final String name; // Имя арендатора
+    private final String surname; // Фамилия арендатора
+    private final String address; // Адрес арендатора
+    private final int stateMetroNumber; // Номер станции метро
+    private final String telephoneNumber; // Телефон арендатора
+    private final String date; // Дата аренды
+    private final String duration; // Длительность аренды
+    private final String colour; // Цвет самоката
+    private final String comment; // Комментарий от пользователя
+    private final String expectedHeader = "Заказ оформлен"; // Ожидаемый заголовок после оформления заказа
 
     @Rule // Используем JUnit Rule для управления WebDriver
     public DriverRule driverRule = new DriverRule();
 
-        // Конструктор для параметров теста
-        public TestOrder(String name, String surname, String address, int stateMetroNumber, String telephoneNumber,
-                               String date, String duration, String colour, String comment) {
-            this.name = name; // Устанавливаем имя
-            this.surname = surname; // Устанавливаем фамилию
-            this.address = address; // Устанавливаем адрес
-            this.stateMetroNumber = stateMetroNumber; // Устанавливаем номер метро
-            this.telephoneNumber = telephoneNumber; // Устанавливаем номер телефона
-            this.date = date; // Устанавливаем дату
-            this.duration = duration; // Устанавливаем длительность аренды
-            this.colour = colour; // Устанавливаем цвет самоката
-            this.comment = comment; // Устанавливаем комментарий
-        }
+    // Конструктор для параметров теста
+    public TestOrder(String name, String surname, String address, int stateMetroNumber, String telephoneNumber,
+                     String date, String duration, String colour, String comment) {
+        this.name = name; // Устанавливаем имя
+        this.surname = surname; // Устанавливаем фамилию
+        this.address = address; // Устанавливаем адрес
+        this.stateMetroNumber = stateMetroNumber; // Устанавливаем номер метро
+        this.telephoneNumber = telephoneNumber; // Устанавливаем номер телефона
+        this.date = date; // Устанавливаем дату
+        this.duration = duration; // Устанавливаем длительность аренды
+        this.colour = colour; // Устанавливаем цвет самоката
+        this.comment = comment; // Устанавливаем комментарий
+    }
 
     @Parameterized.Parameters(name = "Аренда на: {6}")
     public static Object[][] getParameters() {
         return new Object[][]{
                 // Массив параметров для каждого тестового случая
-                {"Иван", "Иванов", "ул Тестовая 1", 123, "79999999999", "24.06.2024","сутки", "GREY", "Позвоните"},
-                {"Петр", "Петров", "ул Тестовая 2", 7, "79000000000", "25.06.2024", "двое суток", "BLACK", "Стучите"},
-                {"Анна", "Рябова", "ул Тестовая 3", 10, "79555555555", "26.06.2024", "трое суток", "BLACK", "Кричите"},
-                {"Иван", "Иванов", "ул Тестовая 1", 123, "79999999999", "27.06.2024", "четверо суток", "GREY", "Подарочная упаковка"},
-                {"Петр", "Петров", "ул Тестовая 2", 7, "79000000000", "29.06.2024", "пятеро суток", "BLACK", "Заранее позвоните"},
-                {"Анна", "Рябова", "ул Тестовая 3", 10, "79555555555", "30.06.2024", "шестеро суток", "BLACK", "Заранее позвоните"},
-                {"Анна", "Рябова", "ул Тестовая 3", 10, "79555555555", "30.06.2024", "семеро суток", "BLACK", "Заранее позвоните"},
+                {"Аполинарий", "Иванов", "ул Первая 1", 123, "79999999999", "24.06.2024", "сутки", "GREY", "Позвоните"},
+                {"Сергей", "Петров", "ул Вторая 2", 7, "79000000000", "25.06.2024", "двое суток", "BLACK", "Стучите"},
+                {"Анна", "Рябова", "ул Третья 3", 10, "79555555555", "26.06.2024", "трое суток", "BLACK", "Кричите"},
+                {"Иван", "Иванов", "ул Четвертая 1", 123, "79999999999", "27.06.2024", "четверо суток", "GREY", "Подарочная упаковка"},
+                {"Петр", "Петров", "ул Пятая 2", 7, "79000000000", "29.06.2024", "пятеро суток", "BLACK", "Заранее позвоните"},
+                {"Анна", "Рябова", "ул Шестая 3", 10, "79555555555", "30.06.2024", "шестеро суток", "BLACK", "Заранее позвоните"},
+                {"Анна", "Рябова", "ул Седьмая 3", 10, "79555555555", "30.06.2024", "семеро суток", "BLACK", "Заранее позвоните"},
         };
     }
 
@@ -69,7 +69,7 @@ import org.junit.Rule;
         WebDriver driver = driverRule.getDriver();
         mainPage = new MainPage(driver);
         mainPage.openPage(); // Открываем главную страницу
-        }
+    }
 
     @Test
     public void TestScooterOrderOrder() {
@@ -98,14 +98,4 @@ import org.junit.Rule;
     }
 
 
-//    @After
-//    public void tearDown() {
-//        if (driver != null) {
-//            try {
-//                driver.quit();
-//            } catch (Exception e) {
-//                System.err.println("Ошибка при закрытии браузера: " + e.getMessage());
-//            }
-//        }
-//    }
 }

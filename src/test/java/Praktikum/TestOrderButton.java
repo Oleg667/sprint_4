@@ -1,6 +1,5 @@
 package Praktikum;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TestOrderButton {
-    //private WebDriver driver; // Закомментировано, так как теперь используется DriverRule
+
     private MainPage mainPage;
 
     @Rule // Используем JUnit Rule для управления WebDriver
